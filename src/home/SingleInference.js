@@ -1,5 +1,4 @@
 import React from 'react';
-import Button from '@material-ui/core/Button';
 import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
@@ -8,6 +7,8 @@ import Typography from '@material-ui/core/Typography';
 import CircularProgress from '@material-ui/core/CircularProgress';
 
 import { makeStyles } from '@material-ui/core/styles';
+
+import FileDrop from './FileDrop'
 
 import $ from 'jquery';
 
@@ -45,6 +46,12 @@ const styles = {
         paddingRight:"13px",
         paddingBottom:"5px"
     },
+    contentTextFail: {
+        paddingLeft: "13px",
+        paddingRight:"13px",
+        paddingBottom:"5px",
+        color: "#fff"
+    },
     backdrop: {
         zIndex: 8,
         color: '#fff',
@@ -65,14 +72,17 @@ export default function SingleInference() {
     
     const [loading, setLoading] = React.useState(false);
     const [failed, setFailed] = React.useState(false);
+    const [uploadActive, setUploadActive] = React.useState(true);
 
-    const handleFileSelect = (evt) =>  {
-        var f = evt.target.files[0]; // FileList object
-        if (f !== null){
+    function newFile(f){
+        if (f != null){
+            console.info(f);
             var reader = new FileReader();
             // Closure to capture the file information.
             reader.onload = (function(theFile) {
                 return function(e) {
+                setFailed(false);
+                setLoading(false);
                 var binaryData = e.target.result;
                 //Converting Binary Data to base 64
                 var base64String = window.btoa(binaryData);
@@ -94,6 +104,7 @@ export default function SingleInference() {
                     success: function (data) {  
                         setFailed(false);
                         setLoading(false);
+                        setUploadActive(true);
                         console.info(data);
                         setNum1(data['num1']);
                         setNum2(data['num2']);
@@ -120,10 +131,12 @@ export default function SingleInference() {
                     error: function(jqXHR, exception){
                         setFailed(true);
                         setLoading(false);
+                        setUploadActive(true);
                     }
                 });
                 //document.getElementById('base64').innerHTML = "loading..."; 
                 setLoading(true);
+                setUploadActive(false);
                 };
             })(f);
             // Read in the image file as a data URL.
@@ -144,21 +157,7 @@ export default function SingleInference() {
                 >
                     <Container maxWidth="sm" align="center">
                         <div>
-
-                            <input
-                            accept="image/*"
-                            style={{ display: 'none' }}
-                            id="raised-button-file"
-                            type="file"
-                            onChange={handleFileSelect}
-                            />
-                            <label htmlFor="raised-button-file">
-                                <div className={classes.wrapper}>
-                                    <Button variant="contained" component="span" color={failed ? "secondary":"primary"} disabled={loading}>
-                                        {failed ? "Try Again":"Upload"}
-                                    </Button>
-                                </div>
-                            </label>
+                            <FileDrop handleFile={newFile} uploadActive={uploadActive}/>
                             
                             <Collapse in={b64Img !== ""} mountOnEnter unmountOnExit>
                                 <div className={classes.wrapper} style={styles.numberImage}>
@@ -174,6 +173,11 @@ export default function SingleInference() {
                                 spacing={2}
                                 justify="center"
                                 alignItems="center">
+                                    <Collapse in={failed} mountOnEnter unmountOnExit>
+                                        <Paper elevation={3} style={{backgroundColor: "#f50057"}}>
+                                                <Typography variant="subtitle1" style={styles.contentTextFail}>Image upload has failed, please try again</Typography>
+                                        </Paper>
+                                    </Collapse>
                                 <Grid item>
                                     <Collapse in={num1 !== -1} mountOnEnter unmountOnExit>
                                         <Paper elevation={3}>
