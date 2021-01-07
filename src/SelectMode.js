@@ -54,10 +54,10 @@ export default function SelectMode(props) {
     return (
         <>
         <Grid item xs={12}>
-          <ButtonGroup variant="contained" color="primary" ref={anchorRef} aria-label="split button" mt={props.marginTop}>
+          <ButtonGroup variant="contained" color="secondary" ref={anchorRef} aria-label="split button" style={{marginTop:props.marginTop}} >
             <Button onClick={handleClick}>{options[selectedIndex]}</Button>
             <Button
-              color="primary"
+              color="secondary"
               size="small"
               aria-controls={open ? 'split-button-menu' : undefined}
               aria-expanded={open ? 'true' : undefined}
