@@ -1,9 +1,13 @@
 import React from 'react';
+
 import ReactDOM from 'react-dom';
-import App from './App';
-import './css/index.css'
 
 import { createMuiTheme, responsiveFontSizes, ThemeProvider } from '@material-ui/core/styles';
+
+import Routes from './Routes';
+
+import { BrowserRouter as Router } from "react-router-dom";
+
 
 let theme = createMuiTheme({
   typography: {
@@ -33,7 +37,9 @@ theme = responsiveFontSizes(theme);
 ReactDOM.render(
   <React.StrictMode>
     <ThemeProvider theme={theme}>
-      <App />
+      <Router>
+        <Routes />
+      </Router>
     </ThemeProvider>
   </React.StrictMode>,
   document.getElementById('root')
