@@ -1,13 +1,16 @@
 import React from 'react';
 import Typography from '@material-ui/core/Typography';
-
-import SelectMode from './SelectMode';
+import Button from '@material-ui/core/Button';
 
 
 const styles = {    
     subText: {
         marginTop:"25px"
     },
+    letsGo: {
+        marginTop:"20px",
+        padding: "8px 15px 8px 15px"
+    }
 }
 
 
@@ -16,7 +19,10 @@ export default function WelcomeInfo(props) {
         <div>
             <Typography variant="h2">One-click Math Analysis.</Typography>
             <Typography variant="subtitle1" style={styles.subText}>Built on Tensorflow and AWS Lambda, mathwriting.ml aims to accurately evaluate handwritten math expressions.</Typography>
-            <SelectMode setShownIndex={props.setShownIndex} marginTop={20} colour="primary"/>
+            <Button variant="contained" color="secondary" style={styles.letsGo} onClick={() => {props.setShownIndex(0)}}>
+                Let's Go!
+            </Button>
+
         </div>
     )
 }

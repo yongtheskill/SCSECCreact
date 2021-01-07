@@ -3,13 +3,11 @@ import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
 import Slide from '@material-ui/core/Slide';
-import Grow from '@material-ui/core/Grow';
 
 import Image from '../img/bg.jpg';
 
 import WelcomeInfo from './WelcomeInfo'
 import SingleInference from './SingleInference'
-import MultiInference from './MultiInference'
 import Navbar from './Navbar';
 
 const styles = {    
@@ -75,13 +73,11 @@ export default function HomeScreen() {
                 <SingleInference />
             </Paper>  
         </Slide>
-        
-        <Grow in={shownIndex === 1} timeout={1000} mountOnEnter unmountOnExit>
-            <paper>
-                <MultiInference />
-            </paper>
-        </Grow>
 
         </>
     )
+}
+
+export function GoButton() {
+
 }

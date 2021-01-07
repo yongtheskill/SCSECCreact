@@ -8,7 +8,6 @@ import Routes from './Routes';
 
 import { BrowserRouter as Router } from "react-router-dom";
 
-
 let theme = createMuiTheme({
   typography: {
     fontFamily: [
@@ -21,15 +20,31 @@ let theme = createMuiTheme({
       fontFamily: 'Raleway,Roboto,Montserrat',
       fontWeight: '900',
     },
+    h4: {
+      fontSize: '30px',
+      flexGrow: '1'
+    },
+    body2: {
+      fontSize: '18px',
+      flexGrow: '1'
+    },
     subtitle1: {
-      fontFamily: 'Raleway,Roboto,Montserrat',
+      fontFamily: 'Montserrat,Roboto',
       fontSize: '25px',
     }
-  },
-
+  },  
+  shape: {
+    borderRadius: 10,
+  }, 
   card:{
-    color: "gray"
+    color: "grey"
+  },
+  palette:{
+    neutral: {
+      main: '#fefefe',
+    },
   }
+
 });
 theme = responsiveFontSizes(theme);
 

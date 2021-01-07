@@ -154,8 +154,8 @@ export default function SingleInference() {
                             />
                             <label htmlFor="raised-button-file">
                                 <div className={classes.wrapper}>
-                                    <Button variant="contained" component="span" color={failed ? "primary":"secondary"} disabled={loading}>
-                                        {failed ? "Upload":"Try Again"}
+                                    <Button variant="contained" component="span" color={failed ? "secondary":"primary"} disabled={loading}>
+                                        {failed ? "Try Again":"Upload"}
                                     </Button>
                                 </div>
                             </label>
