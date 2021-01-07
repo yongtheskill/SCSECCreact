@@ -83,6 +83,7 @@ export default function SingleInference() {
                 },
                 dataType: 'json',
                 contentType: "application/json",
+                timeout: 80000,
                 success: function (data) {  
                     setLoading(false);
                     console.info(data);
