@@ -59,7 +59,7 @@ export default function HomeScreen() {
         </Slide>
 
         <Slide direction="left" in={shownIndex === -1} mountOnEnter unmountOnExit>
-        <Paper style={styles.halfScreenRight}></Paper>  
+        <Paper style={styles.halfScreenRight} square={true} elevation={0}></Paper>  
         </Slide>
 
 
