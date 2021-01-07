@@ -16,7 +16,7 @@ export default function WelcomeInfo(props) {
         <div>
             <Typography variant="h2">One-click Math Analysis.</Typography>
             <Typography variant="subtitle1" style={styles.subText}>Built on Tensorflow and AWS Lambda, mathwriting.ml aims to accurately evaluate handwritten math expressions.</Typography>
-            <SelectMode setShownIndex={props.setShownIndex} marginTop={20}/>
+            <SelectMode setShownIndex={props.setShownIndex} marginTop={20} colour="primary"/>
         </div>
     )
 }

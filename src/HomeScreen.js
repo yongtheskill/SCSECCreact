@@ -50,7 +50,7 @@ export default function HomeScreen() {
         <>
         <AppBar position="static" position="absolute">
         <Toolbar>
-            <SelectMode setShownIndex={setShownIndex} />
+            <SelectMode setShownIndex={setShownIndex} colour="secondary"/>
             <Typography variant="h6" style={styles.title} align="right">
             mathwriting.ml
             </Typography>
