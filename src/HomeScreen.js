@@ -5,11 +5,17 @@ import Container from '@material-ui/core/Container';
 import Slide from '@material-ui/core/Slide';
 import Grow from '@material-ui/core/Grow';
 
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
+import Typography from '@material-ui/core/Typography';
+
+
 import Image from './img/bg.jpg';
 
 import WelcomeInfo from './WelcomeInfo'
 import SingleInference from './SingleInference'
 import MultiInference from './MultiInference'
+import SelectMode from './SelectMode';
 
 const styles = {    
     fullWrapper: {
@@ -30,7 +36,10 @@ const styles = {
         position: 'absolute',
         right:'0px',
         borderRadius: '0px'
-    }
+    },
+    title: {
+      flexGrow: 1,
+    },
 };
 
 export default function HomeScreen() {
@@ -39,6 +48,16 @@ export default function HomeScreen() {
 
     return (
         <>
+        <AppBar position="static" position="absolute">
+        <Toolbar>
+            <SelectMode setShownIndex={setShownIndex} />
+            <Typography variant="h6" style={styles.title} align="right">
+            mathwriting.ml
+            </Typography>
+        </Toolbar>
+        </AppBar>
+
+
         <Slide direction="right" in={shownIndex !== -2} mountOnEnter unmountOnExit>
         <Paper style={styles.halfScreenLeft} elevation={0}>
             <Grid container direction="column" item align="center">

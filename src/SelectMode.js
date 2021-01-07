@@ -12,12 +12,6 @@ import MenuItem from '@material-ui/core/MenuItem';
 import MenuList from '@material-ui/core/MenuList';
 
 
-const styles = {    
-    selButton: {
-        marginTop:"20px"
-    },
-}
-
 const options = ['Analyse Single', 'Analyse Batch'];
 
 export default function SelectMode(props) {
@@ -60,7 +54,7 @@ export default function SelectMode(props) {
     return (
         <>
         <Grid item xs={12}>
-          <ButtonGroup variant="contained" color="primary" ref={anchorRef} aria-label="split button" style={styles.selButton}>
+          <ButtonGroup variant="contained" color="primary" ref={anchorRef} aria-label="split button" mt={props.marginTop}>
             <Button onClick={handleClick}>{options[selectedIndex]}</Button>
             <Button
               color="primary"
