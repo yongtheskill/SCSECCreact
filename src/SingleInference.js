@@ -31,6 +31,9 @@ const useStyles = makeStyles((theme) => ({
       marginTop: -12,
       marginLeft: -12,
     },
+    darkened: {
+        filter: "brightness(75%) blur(0.75px)",
+    }
   }));
 
 const styles = {    
@@ -49,6 +52,9 @@ const styles = {
         zIndex: 8,
         color: '#fff',
     },
+    numberImage: {
+        marginTop: "20px"
+    }
 }
 
 export default function SingleInference() {
@@ -58,73 +64,77 @@ export default function SingleInference() {
     const [num2, setNum2] = React.useState(-1);
     const [op, setOp] = React.useState("");
     const [result, setResult] = React.useState("no");
+    const [b64Img, setb64Img] = React.useState("");
     
     const [loading, setLoading] = React.useState(false);
 
     const handleFileSelect = (evt) =>  {
         var f = evt.target.files[0]; // FileList object
-        var reader = new FileReader();
-        // Closure to capture the file information.
-        reader.onload = (function(theFile) {
-            return function(e) {
-            var binaryData = e.target.result;
-            //Converting Binary Data to base 64
-            var base64String = window.btoa(binaryData);
-            //showing file converted to base64
-            $.ajax({
-                url: "https://api.mathwriting.ml/classify",
-                type: 'POST',
-                crossDomain: true,
-                data: JSON.stringify({
-                    "imgData":base64String
-                }),
-                headers: {
-                    "X-Api-Key": 'P3nncuYK1P2HJGRa8RtA35cRB2l1K20j2aDQqY8S'
-                },
-                dataType: 'json',
-                contentType: "application/json",
-                timeout: 80000,
-                success: function (data) {  
-                    setLoading(false);
-                    console.info(data);
-                    document.getElementById('base64').innerHTML = "";
-                    setNum1(data['num1']);
-                    setNum2(data['num2']);
-                    var ans;
-                    if (data['op'] === "0"){
-                        setOp("+");
-                        ans = Number(data['num1']) + Number(data['num2']);
-                    }
-                    else if (data['op'] === "1"){
-                        setOp("-");
-                        ans = Number(data['num1']) - Number(data['num2']);
-                    }
-                    else if (data['op'] === "2"){
-                        setOp("x");
-                        ans = Number(data['num1']) * Number(data['num2']);
-                    }
-                    else if (data['op'] === "3"){
-                        setOp("÷");
-                        ans = Number(data['num1']) / Number(data['num2']);
-                    }
-                    setResult(ans);
+        if (f !== null){
+            var reader = new FileReader();
+            // Closure to capture the file information.
+            reader.onload = (function(theFile) {
+                return function(e) {
+                var binaryData = e.target.result;
+                //Converting Binary Data to base 64
+                var base64String = window.btoa(binaryData);
+                setb64Img(base64String);
+                //showing file converted to base64
+                $.ajax({
+                    url: "https://api.mathwriting.ml/classify",
+                    type: 'POST',
+                    crossDomain: true,
+                    data: JSON.stringify({
+                        "imgData":base64String
+                    }),
+                    headers: {
+                        "X-Api-Key": 'P3nncuYK1P2HJGRa8RtA35cRB2l1K20j2aDQqY8S'
+                    },
+                    dataType: 'json',
+                    contentType: "application/json",
+                    timeout: 80000,
+                    success: function (data) {  
+                        setLoading(false);
+                        console.info(data);
+                        document.getElementById('base64').innerHTML = "";
+                        setNum1(data['num1']);
+                        setNum2(data['num2']);
+                        var ans;
+                        if (data['op'] === "0"){
+                            setOp("+");
+                            ans = Number(data['num1']) + Number(data['num2']);
+                        }
+                        else if (data['op'] === "1"){
+                            setOp("-");
+                            ans = Number(data['num1']) - Number(data['num2']);
+                        }
+                        else if (data['op'] === "2"){
+                            setOp("x");
+                            ans = Number(data['num1']) * Number(data['num2']);
+                        }
+                        else if (data['op'] === "3"){
+                            setOp("÷");
+                            ans = Number(data['num1']) / Number(data['num2']);
+                        }
+                        setResult(ans);
 
-                },
-                error: function(jqXHR, exception){
-                    document.getElementById('base64').innerHTML = "FAILED :(";
-                    setLoading(false);
-                }
-            });
-            //document.getElementById('base64').innerHTML = "loading..."; 
-            setLoading(true);
-            };
-        })(f);
-        // Read in the image file as a data URL.
-        reader.readAsBinaryString(f);
+                    },
+                    error: function(jqXHR, exception){
+                        document.getElementById('base64').innerHTML = "FAILED :(";
+                        setLoading(false);
+                    }
+                });
+                //document.getElementById('base64').innerHTML = "loading..."; 
+                setLoading(true);
+                };
+            })(f);
+            // Read in the image file as a data URL.
+            reader.readAsBinaryString(f);
         }
+    }
 
     return (
-        <div>            
+        <div>
             <Paper square={true} elevation={0}>
                 <Grid container direction="column" item align="center">
                 <Grid
@@ -136,6 +146,8 @@ export default function SingleInference() {
                 >
                     <Container maxWidth="sm" align="center">
                         <div>
+
+
                             <input
                             accept="image/*"
                             style={{ display: 'none' }}
@@ -148,9 +160,16 @@ export default function SingleInference() {
                                     <Button variant="contained" component="span" color="primary" disabled={loading}>
                                         Upload
                                     </Button>
-                                    {loading && <CircularProgress size={24} className={classes.buttonProgress} />}
                                 </div>
                             </label> 
+                            
+                            <Collapse in={b64Img !== ""} mountOnEnter unmountOnExit>
+                                <div className={classes.wrapper} style={styles.numberImage}>
+                                    <img src={`data:image/jpeg;base64,${b64Img}`} className={loading && classes.darkened} />
+                                    {loading && <CircularProgress size={24} className={classes.buttonProgress} />}
+                                </div>
+                            </Collapse>
+
                             
                             <h1 id="base64"></h1>
                             <Grid container
