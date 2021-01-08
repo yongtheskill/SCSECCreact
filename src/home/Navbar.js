@@ -4,6 +4,8 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 
+import Slide from '@material-ui/core/Slide';
+
 import { Link }  from 'react-router-dom';
 
 
@@ -18,7 +20,7 @@ const styles = {
     }
 };
 
-export default function Navbar() {
+export default function Navbar(props) {
 
     return (
         <div>
@@ -26,18 +28,24 @@ export default function Navbar() {
             <Toolbar>
 
                 <Typography variant="h4" style={styles.title} align="left">mathwriting.ml</Typography>
-
-                <Link to="/" style={styles.link} >
-                    <Typography variant="body2" style={styles.title} align="right">Home</Typography>
-                </Link>
                 
+                <Slide direction="top" in={props.shown} mountOnEnter unmountOnExit timeout={{enter:1500}} >
+                    <Link to="/" style={styles.link} >
+                        <Typography variant="body2" style={styles.title} align="right">Home</Typography>
+                    </Link>
+                </Slide>
+                
+                <Slide direction="top" in={props.shown} mountOnEnter unmountOnExit timeout={{enter:1150}}>
                 <Link to="/how" style={styles.link} >
                     <Typography variant="body2" style={styles.title} align="right">How it Works</Typography>
                 </Link>
+                </Slide>
                     
+                <Slide direction="top" in={props.shown} mountOnEnter unmountOnExit timeout={{enter:800}}>
                 <Link to="/about" style={styles.link} >
                     <Typography variant="body2" style={styles.title} align="right">About Us</Typography>
                 </Link>
+                </Slide>
 
             </Toolbar>
             </AppBar>

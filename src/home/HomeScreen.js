@@ -41,7 +41,7 @@ export default function HomeScreen() {
 
     return (
         <>
-        <Navbar />
+        <Navbar shown={shown}/>
 
 
         <Slide direction="right" in={shown || !shown} mountOnEnter unmountOnExit>
