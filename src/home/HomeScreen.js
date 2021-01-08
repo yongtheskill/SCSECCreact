@@ -6,9 +6,9 @@ import Slide from '@material-ui/core/Slide';
 
 import Image from '../img/bg.jpg';
 
-import WelcomeInfo from './WelcomeInfo'
-import SingleInference from './SingleInference'
-import Navbar from './Navbar';
+import WelcomeInfo from './WelcomeInfo';
+import SingleInference from './SingleInference';
+import Navbar from '../Navbar';
 
 const styles = {    
     fullWrapper: {

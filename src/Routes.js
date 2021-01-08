@@ -8,7 +8,8 @@ import {
 import './css/index.css'
 
 import Home from './home/Home';
-import Navbar from './home/Navbar';
+import HowItWorks from './how/HowItWorks';
+import Navbar from './Navbar';
 
 
 class Routes extends Component {
@@ -16,7 +17,7 @@ class Routes extends Component {
         return(
         <Switch>
             <Route exact path="/" component={Home} />
-            <Route path="/how" component={Navbar} />
+            <Route path="/how" component={HowItWorks} />
             <Route path="/about" component={Navbar} />
         </Switch>
         );
