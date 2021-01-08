@@ -47,14 +47,7 @@ export default function HomeScreen() {
         <Slide direction="right" in={shown || !shown} mountOnEnter unmountOnExit>
         <Paper style={styles.halfScreenLeft} elevation={0}>
             <Grid container direction="column" item align="center">
-            <Grid
-                item
-                container
-                direction="column"
-                display="flex"
-                justify="center"
-                style={styles.fullWrapper}
-            >
+            <Grid item container direction="column" display="flex" justify="center" style={styles.fullWrapper}>
                 <Container maxWidth="sm" align="left">
                     <WelcomeInfo setShow={setShown}/>
                 </Container>

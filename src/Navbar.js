@@ -9,7 +9,7 @@ import Slide from '@material-ui/core/Slide';
 import { Link }  from 'react-router-dom';
 
 
-const styles = {
+var styles = {
     title: {
         color: "#3f51b5",
         flexGrow: 1,
@@ -21,6 +21,18 @@ const styles = {
 };
 
 export default function Navbar(props) {
+    if (props.textColour != null){
+        styles.title = {
+            color: props.textColour,
+            flexGrow: 1,
+        };
+    }
+    else {
+        styles.title = {
+            color: "#3f51b5",
+            flexGrow: 1,
+        };
+    }
 
     return (
         <div>
