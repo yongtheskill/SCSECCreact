@@ -6,9 +6,9 @@ import Slide from '@material-ui/core/Slide';
 
 import Image from '../img/bg.jpg';
 
-import WelcomeInfo from './WelcomeInfo'
-import SingleInference from './SingleInference'
-import Navbar from './Navbar';
+import WelcomeInfo from './WelcomeInfo';
+import SingleInference from './SingleInference';
+import Navbar from '../Navbar';
 
 const styles = {    
     fullWrapper: {
@@ -41,20 +41,13 @@ export default function HomeScreen() {
 
     return (
         <>
-        <Navbar />
+        <Navbar shown={shown} toSlide={true}/>
 
 
         <Slide direction="right" in={shown || !shown} mountOnEnter unmountOnExit>
         <Paper style={styles.halfScreenLeft} elevation={0}>
             <Grid container direction="column" item align="center">
-            <Grid
-                item
-                container
-                direction="column"
-                display="flex"
-                justify="center"
-                style={styles.fullWrapper}
-            >
+            <Grid item container direction="column" display="flex" justify="center" style={styles.fullWrapper}>
                 <Container maxWidth="sm" align="left">
                     <WelcomeInfo setShow={setShown}/>
                 </Container>
