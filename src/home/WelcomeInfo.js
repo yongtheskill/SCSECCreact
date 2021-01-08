@@ -19,7 +19,7 @@ export default function WelcomeInfo(props) {
         <div>
             <Typography variant="h2">One-click Math Analysis.</Typography>
             <Typography variant="subtitle1" style={styles.subText}>Built on Tensorflow and AWS Lambda, mathwriting.ml aims to accurately evaluate handwritten math expressions.</Typography>
-            <Button variant="contained" color="secondary" style={styles.letsGo} onClick={() => {props.setShownIndex(0)}}>
+            <Button variant="contained" color="secondary" style={styles.letsGo} onClick={() => {props.setShow(true)}}>
                 Let's Go!
             </Button>
 

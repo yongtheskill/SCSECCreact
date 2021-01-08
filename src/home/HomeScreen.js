@@ -37,14 +37,14 @@ const styles = {
 
 export default function HomeScreen() {
 
-    const [shownIndex, setShownIndex] = React.useState(-1);
+    const [shown, setShown] = React.useState(false);
 
     return (
         <>
         <Navbar />
 
 
-        <Slide direction="right" in={shownIndex !== -2} mountOnEnter unmountOnExit>
+        <Slide direction="right" in={shown || !shown} mountOnEnter unmountOnExit>
         <Paper style={styles.halfScreenLeft} elevation={0}>
             <Grid container direction="column" item align="center">
             <Grid
@@ -56,19 +56,19 @@ export default function HomeScreen() {
                 style={styles.fullWrapper}
             >
                 <Container maxWidth="sm" align="left">
-                    <WelcomeInfo setShownIndex={setShownIndex}/>
+                    <WelcomeInfo setShow={setShown}/>
                 </Container>
             </Grid>
             </Grid>
         </Paper>  
         </Slide>
 
-        <Slide direction="left" in={shownIndex === -1} mountOnEnter unmountOnExit>
+        <Slide direction="left" in={!shown} mountOnEnter unmountOnExit>
         <Paper style={styles.halfScreenRight} square={true} elevation={0}></Paper>  
         </Slide>
 
 
-        <Slide direction="left" in={shownIndex === 0} style={{ transitionDelay: shownIndex === 0 ? '300ms' : '0ms' }} mountOnEnter unmountOnExit>
+        <Slide direction="left" in={shown} style={{ transitionDelay: shown ? '300ms' : '0ms' }} mountOnEnter unmountOnExit>
             <Paper style={styles.halfScreenRight} square={true} elevation={0}>
                 <SingleInference />
             </Paper>  

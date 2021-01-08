@@ -6,9 +6,10 @@ import Typography from '@material-ui/core/Typography';
 
 import { Link }  from 'react-router-dom';
 
+
 const styles = {
     title: {
-        color: "#eee",
+        color: "#3f51b5",
         flexGrow: 1,
     },
     link: {
@@ -21,29 +22,23 @@ export default function Navbar() {
 
     return (
         <div>
-            <AppBar position="absolute">
+            <AppBar position="absolute" color = "transparent" elevation={0} >
             <Toolbar>
+
+                <Typography variant="h4" style={styles.title} align="left">mathwriting.ml</Typography>
+
                 <Link to="/" style={styles.link} >
-                <Typography variant="body2" style={styles.title} align="left">
-                Home
-                </Typography>
+                    <Typography variant="body2" style={styles.title} align="right">Home</Typography>
                 </Link>
                 
                 <Link to="/how" style={styles.link} >
-                <Typography variant="body2" style={styles.title} align="left">
-                How it Works
-                </Typography>
+                    <Typography variant="body2" style={styles.title} align="right">How it Works</Typography>
                 </Link>
-                
+                    
                 <Link to="/about" style={styles.link} >
-                <Typography variant="body2" style={styles.title} align="left">
-                About Us
-                </Typography>
+                    <Typography variant="body2" style={styles.title} align="right">About Us</Typography>
                 </Link>
 
-                <Typography variant="h4" style={styles.title} align="right">
-                Mathwriting.ml
-                </Typography>
             </Toolbar>
             </AppBar>
         </div>

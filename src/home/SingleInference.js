@@ -44,12 +44,12 @@ const styles = {
     contentText: {
         paddingLeft: "13px",
         paddingRight:"13px",
-        paddingBottom:"5px"
+        //paddingBottom:"5px",
     },
     contentTextFail: {
         paddingLeft: "13px",
         paddingRight:"13px",
-        paddingBottom:"5px",
+        //paddingBottom:"5px",
         color: "#fff"
     },
     backdrop: {
@@ -57,7 +57,10 @@ const styles = {
         color: '#fff',
     },
     numberImage: {
-        marginTop: "20px"
+        marginTop: "20px",
+    },
+    imgBox: {
+        maxWidth:'80%',
     }
 }
 
@@ -111,19 +114,19 @@ export default function SingleInference() {
                         var ans;
                         if (data['op'] === "0"){
                             setOp("+");
-                            ans = Number(data['num1']) + Number(data['num2']);
+                            ans = Math.round((Number(data['num1']) + Number(data['num2']) + Number.EPSILON) * 100) / 100;
                         }
                         else if (data['op'] === "1"){
                             setOp("-");
-                            ans = Number(data['num1']) - Number(data['num2']);
+                            ans = Math.round((Number(data['num1']) - Number(data['num2']) + Number.EPSILON) * 100) / 100;
                         }
                         else if (data['op'] === "2"){
                             setOp("x");
-                            ans = Number(data['num1']) * Number(data['num2']);
+                            ans = Math.round((Number(data['num1']) * Number(data['num2']) + Number.EPSILON) * 100) / 100;
                         }
                         else if (data['op'] === "3"){
                             setOp("÷");
-                            ans = Number(data['num1']) / Number(data['num2']);
+                            ans = Math.round((Number(data['num1']) / Number(data['num2']) + Number.EPSILON) * 100) / 100;
                         }
                         setResult(ans);
 
@@ -161,14 +164,14 @@ export default function SingleInference() {
                             
                             <Collapse in={b64Img !== ""} mountOnEnter unmountOnExit>
                                 <div className={classes.wrapper} style={styles.numberImage}>
-                                    <img src={`data:image/jpeg;base64,${b64Img}`} className={loading && classes.darkened} alt="to upload"/>
+                                    <img src={`data:image/jpeg;base64,${b64Img}`} className={loading && classes.darkened} alt="to upload" style={styles.imgBox}/>
                                     {loading && <CircularProgress size={24} className={classes.buttonProgress} />}
                                 </div>
                             </Collapse>
 
                             
                             <Grid container
-                                dircetion="row" 
+                                direction="row" 
                                 style={styles.root} 
                                 spacing={2}
                                 justify="center"
@@ -199,11 +202,16 @@ export default function SingleInference() {
                                         </Paper>
                                     </Collapse>
                                 </Grid>
-
+                                <Grid item>
+                                    <Collapse in={result !== "no"} mountOnEnter unmountOnExit>
+                                        <Typography variant="h4" style={styles.contentText}>= {result}</Typography>
+                                    </Collapse>
+                                </Grid>
                             </Grid>
 
+                            {/*
                             <Grid container
-                                dircetion="row" 
+                                direction="row" 
                                 style={styles.root} 
                                 spacing={2}
                                 justify="center"
@@ -214,6 +222,7 @@ export default function SingleInference() {
                                     </Collapse>
                                 </Grid>
                             </Grid>
+                            */}
 
                         </div>
                     </Container>
