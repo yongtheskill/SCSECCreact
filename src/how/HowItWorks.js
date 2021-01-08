@@ -19,6 +19,14 @@ const styles = {
         width: "inherit",
         height: "inherit"
     },
+    fitElem: {
+        maxHeight: "100%",
+        maxWidth: "100%",
+    },
+    fitElemSmall: {
+        maxHeight: "90%",
+        maxWidth: "90%",
+    },
     flatPaper: {
         borderRadius: '0px',
     },
@@ -89,7 +97,7 @@ export default function HowItWorks() {
                     <Grid container direction="column" item align="center" style={styles.fillGrid}>
                         <Grid item container direction="column" display="flex" justify="center" style={styles.fillGrid}>
                             <Container maxWidth="sm" align="left">
-                                <img src={WRNImg} alt=""/>
+                                <img src={WRNImg} alt="" style={styles.fitElem}/>
                             </Container>
                         </Grid>
                     </Grid>
@@ -106,32 +114,32 @@ export default function HowItWorks() {
                 <Grid item md={12} style={{height: "10vh", backgroundColor: "black"}}>
                     <Grid container direction="column" item align="center" style={styles.fillGrid}>
                         <Grid item container direction="column" display="flex" justify="center" style={styles.fillGrid}>
-                            <Container maxWidth="sm" align="left">
+                            <Container maxWidth="sm" align="center">
                                 <Typography variant="h2" style={{color:"white"}}>The Difference</Typography>
                             </Container>
                         </Grid>
                     </Grid>
                 </Grid>
 
-                
-                <Grid item md={6} style={{...styles.grayBg, ...{height:"85vh"}}}>
+            
+                <Grid item md={6} style={{...styles.grayBg, ...{height:"65vh"}}}>
 
                     <Grid container direction="column" item align="center" style={styles.fillGrid}>
                         <Grid item container direction="column" display="flex" justify="center" style={styles.fillGrid}>
-                            <Container maxWidth="sm" align="center">
-                                <img src={ResNetImg} alt=""/>
+                            <Container maxWidth="sm" align="center" style={styles.fitElemSmall}>
+                                <img src={ResNetImg} alt=""  style={styles.fitElemSmall}/>
                                 <Typography variant="subtitle1">ResNet</Typography>
                             </Container>
                         </Grid>
                     </Grid>
 
                 </Grid>
-                <Grid item md={6} style={{...styles.grayBg, ...{height:"85vh"}}}>
+                <Grid item md={6} style={{...styles.grayBg, ...{height:"65vh"}}}>
 
                     <Grid container direction="column" item align="center" style={styles.fillGrid}>
                         <Grid item container direction="column" display="flex" justify="center" style={styles.fillGrid}>
-                            <Container maxWidth="sm" align="center">
-                                <img src={WRNImg} alt=""/>
+                            <Container maxWidth="sm" align="center" style={styles.fitElemSmall}>
+                                <img src={WRNImg} alt="" style={styles.fitElemSmall}/>
                                 <Typography variant="subtitle1" >WRN</Typography>
                             </Container>
                         </Grid>
@@ -139,18 +147,6 @@ export default function HowItWorks() {
 
                 </Grid>
 
-                
-                <Grid item md={12} style={{...styles.grayBg, ...{height:"5vh"}}}>
-
-                    <Grid container direction="column" item align="center" style={styles.fillGrid}>
-                        <Grid item container direction="column" display="flex" justify="center" style={styles.fillGrid}>
-                            <Container maxWidth="sm" align="center">
-                                <NextPage />
-                            </Container>
-                        </Grid>
-                    </Grid>
-
-                </Grid>
             </Grid>
 
 
