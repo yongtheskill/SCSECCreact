@@ -28,7 +28,8 @@ export default function Navbar(props) {
             <Toolbar>
 
                 <Typography variant="h4" style={styles.title} align="left">mathwriting.ml</Typography>
-                
+                {props.toSlide ?
+                <>
                 <Slide direction="top" in={props.shown} mountOnEnter unmountOnExit timeout={{enter:1500}} >
                     <Link to="/" style={styles.link} >
                         <Typography variant="body2" style={styles.title} align="right">Home</Typography>
@@ -46,6 +47,23 @@ export default function Navbar(props) {
                     <Typography variant="body2" style={styles.title} align="right">About Us</Typography>
                 </Link>
                 </Slide>
+                </>
+                :
+                <>
+                <Link to="/" style={styles.link} >
+                    <Typography variant="body2" style={styles.title} align="right">Home</Typography>
+                </Link>
+                
+                <Link to="/how" style={styles.link} >
+                    <Typography variant="body2" style={styles.title} align="right">How it Works</Typography>
+                </Link>
+                    
+                <Link to="/about" style={styles.link} >
+                    <Typography variant="body2" style={styles.title} align="right">About Us</Typography>
+                </Link>
+                </>
+            }
+
 
             </Toolbar>
             </AppBar>
