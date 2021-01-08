@@ -37,12 +37,6 @@ const styles = {
 
 export default function HowItWorks() {
 
-    const nextPage = () => {
-        window.scrollTo({
-            top: ~~((window.scrollY + window.innerHeight) / window.innerHeight) * window.innerHeight,
-            behavior: 'smooth'     
-        })
-    }
 
     return (
         <div>
@@ -58,7 +52,7 @@ export default function HowItWorks() {
                         <Grid item container direction="column" display="flex" justify="center" style={styles.fillGrid}>
                             <Container maxWidth="sm" align="left">
                                 <Typography variant="h2" style={{color:"white"}}>How It Works</Typography>
-                                <NextPage text="next section"/>
+                                <NextPage text="learn more"/>
                             </Container>
                         </Grid>
                     </Grid>

@@ -31,7 +31,7 @@ export default function NextPage(props) {
     else {
     return (
         <div>
-            <Button onClick={nextPage} style={style}>Down</Button>
+            <Button onClick={nextPage} style={style}>Next</Button>
         </div>
     )}
 }
