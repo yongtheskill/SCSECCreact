@@ -1,6 +1,6 @@
 import React from 'react'
 
-
+import Box from '@material-ui/core/Box'
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
 import CardActions from '@material-ui/core/CardActions';
@@ -86,10 +86,11 @@ export default function ExpandCard(props) {
                 </CardActionArea>
 
                 <CardContent>
-                    <Typography gutterBottom variant="h5" component="h2">
-                        {props.title}
-                    </Typography>
-                    
+                    <Box alignItems="center" paddingTop="5px">
+                        <Typography variant="h5" component="h2">
+                            {props.title}
+                        </Typography>
+                    </Box>
                     <div style={styles.overlay}>
                     </div>
                 </CardContent>

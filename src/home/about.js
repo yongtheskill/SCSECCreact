@@ -11,6 +11,8 @@ import firmware from '../img/firmwareSvg'
 import pfp from '../img/pfp'
 import vision from '../img/vision'
 import mission from '../img/mission'
+import school from '../img/school'
+import work from '../img/working'
 
 const styles = {
     boxy:{
@@ -83,6 +85,36 @@ export class about extends Component {
                     <Grid container direction="row" justify="space-evenly" alignItems="center" style={styles.boxy}>
                         <Grid container direction="column" justify="space-between" alignItems="center">
                             <Grid item>
+                                <Typography style={{fontFamily:"Raleway,Roboto,Montserrat",fontSize:"48px",margin:"30px"}}>Workshops...</Typography>
+                            </Grid>
+                            <Grid item>
+                                <Grid container direction="row" justify="space-evenly" alignItems="center">
+                                    <Grid item xs={6}>
+                                        <Grid container direction="column" justify="space-between" alignItems="center">
+                                            <Grid item>
+                                                <Container maxWidth="sm" align="center"><SvgIcon component={school} viewBox="0 0 744 539.286" style={{transform:"scale(12)",margin:"130px 180px"}}/></Container>
+                                            </Grid>
+                                            <Grid item><Typography style={{fontFamily:"Raleway,Roboto,Montserrat",fontSize:"24px",fontWeight:"500"}}>For Schools</Typography></Grid>
+                                        </Grid>
+                                    </Grid>
+                                    <Grid item xs={6}>
+                                        <Grid container direction="column" justify="space-between" alignItems="center">
+                                            <Grid item>
+                                                <Container maxWidth="sm" align="center"><SvgIcon component={work} viewBox="0 0 1144 637" style={{transform:"scale(12)",margin:"130px 180px"}}/></Container>
+                                            </Grid>
+                                            <Grid item><Typography style={{fontFamily:"Raleway,Roboto,Montserrat",fontSize:"24px",fontWeight:"500"}}>For the Workforce</Typography></Grid>
+                                        </Grid>
+                                    </Grid>
+                                </Grid>
+                            </Grid>
+                        </Grid>
+                    </Grid>
+
+                    
+                    <Grid container direction="row" justify="space-evenly" alignItems="center" style={styles.boxy}>
+                    <Paper style={{width:"85vw",height:"80vh"}} elevation={3}>
+                        <Grid container direction="column" justify="space-between" alignItems="center">
+                            <Grid item>
                                 <Typography style={{fontFamily:"Montserrat,Raleway,Roboto",fontSize:"48px",margin:"30px"}}>Meet the Team</Typography>
                             </Grid>
                             <Grid item>
@@ -117,8 +149,9 @@ export class about extends Component {
                                 </Grid>
                             </Grid>
                         </Grid>
+                    </Paper>
                     </Grid>
-
+                    
                 </Grid>
             </div>
         )
