@@ -25,7 +25,7 @@ const styles = {
 var useStyles = makeStyles((theme) => ({
     cardMedia:{
         '&:hover': {
-            filter: "blur(4px) brightness(25%) ",
+            filter: "blur(4px) brightness(75%) ",
             backgroundColor: "#888",
             transitionDuration: "300ms"
         },
