@@ -33,6 +33,9 @@ let theme = createMuiTheme({
       fontSize: '18px',
       flexGrow: '1'
     },
+    body1: {
+      fontFamily: 'Montserrat,Roboto',
+    },
     subtitle1: {
       fontFamily: 'Montserrat,Roboto',
       fontSize: '25px',

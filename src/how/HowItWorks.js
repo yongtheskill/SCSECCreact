@@ -11,6 +11,11 @@ import Button from '@material-ui/core/Button';
 import Link from '@material-ui/core/Link';
 import Hidden from '@material-ui/core/Hidden';
 
+import BuildIcon from '@material-ui/icons/Build';
+import TuneIcon from '@material-ui/icons/Tune';
+import TrendingUpIcon from '@material-ui/icons/TrendingUp';
+import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
+
 
 import WRNImg from '../img/WRN.png';
 import ResNetImg from '../img/ResNet.png';
@@ -53,7 +58,11 @@ const styles = {
     },
     grayBg: {
         backgroundColor: '#eee'
+    },
+    modelTrainingIcons: {
+        fontSize: "100px",
     }
+    
 }
 
 
@@ -284,7 +293,7 @@ export default function HowItWorks() {
 
 
 
-                <Grid container spacing={0} style={{ backgroundColor: "#fff" }}>
+                <Grid container spacing={0} style={styles.grayBg}>
                     <Grid item md={12} style={{height:"33vh"}}>
                         <Grid container direction="column" item align="center" style={styles.fillGrid}>
                             <Grid item container direction="column" display="flex" justify="center" style={styles.fillGrid}>
@@ -308,7 +317,7 @@ export default function HowItWorks() {
                     </Grid>
                 </Grid>
 
-                <Grid container spacing={0} style={{ backgroundColor: "#fff" }}>
+                <Grid container spacing={0} style={styles.grayBg}>
                     <Grid item md={12} style={{height:"33vh"}}>
                         <Grid container direction="column" item align="center" style={styles.fillGrid}>
                             <Grid item container direction="column" display="flex" justify="center" style={styles.fillGrid}>
@@ -332,7 +341,7 @@ export default function HowItWorks() {
                     </Grid>
                 </Grid>
 
-                <Grid container spacing={0} style={{ backgroundColor: "#fff" }}>
+                <Grid container spacing={0} style={styles.grayBg}>
                     <Grid item md={12} style={{height:"34vh"}}>
                         <Grid container direction="column" item align="center" style={styles.fillGrid}>
                             <Grid item container direction="column" display="flex" justify="center" style={styles.fillGrid}>
@@ -358,24 +367,66 @@ export default function HowItWorks() {
 
 
 
+                <Grid container spacing={0}>
+                <Grid item md={12} style={styles.fullHeight}>
 
-                <Grid container spacing={0} style={{ backgroundColor: "#fff" }}>
-                    <Grid item md={12} style={styles.fullHeight}>
+                    <Grid container direction="column" item align="center" style={styles.fillGrid}>
+                        <Grid item container direction="column" display="flex" justify="center" style={styles.fillGrid}>
+                            <div>
 
-                        <Grid container direction="column" item align="center" style={styles.fillGrid}>
-                            <Grid item container direction="column" display="flex" justify="center" style={styles.fillGrid}>
-                                <Container maxWidth="sm" align="left">
-                                    <Typography variant="h2">Model Training</Typography>
-                                    <NextPage text="ok" />
+
+                                
+                            <Grid container direction="column" item align="center" >
+                            <Container maxWidth="md" align="center">
+                                <Typography variant="h2">Model Training</Typography>
+                                <Typography variant="subtitle1" style={{ color: "#666", marginTop: "15px" }}>From start to finish, how our machine learning model was trained to recognise handwritten math expressions.</Typography>
+                            </Container>
+                        </Grid>
+                        <Grid item align="center" style={{ marginTop: "40px" }}>
+                            <div style={styles.fitElem}>
+                                <Container maxWidth="lg" align="center">
+                                    <Grid container direction="row" spacing={5} xs={11}>
+                                        <Grid item md={3}>
+                                            <BuildIcon style={styles.modelTrainingIcons}/>
+                                            <Typography variant="subtitle1" style={{fontWeight:"500", marginTop:"10px", marginBottom: "5px"}}>Build Model</Typography>
+                                            <Typography variant="body1">Use Keras and Tensorflow to create a Wide Residual Network model based on the research paper.</Typography>
+                                        </Grid>
+                                        
+                                        <Grid item md={1}>
+                                            <ArrowForwardIosIcon style={{fontSize:"25px", marginTop:"35px"}}/>
+                                        </Grid>
+
+                                        <Grid item md={3}>
+                                            <TuneIcon style={styles.modelTrainingIcons}/>
+                                            <Typography variant="subtitle1" style={{fontWeight:"500", marginTop:"10px", marginBottom: "5px"}}>Hyperparameter Tuning</Typography>
+                                            <Typography variant="body1">Convert the model to a Keras HyperModel and tune its hyperparameters, three times for the three different images.</Typography>
+                                        </Grid>
+
+                                        <Grid item md={1}>
+                                            <ArrowForwardIosIcon style={{fontSize:"25px", marginTop:"35px"}}/>
+                                        </Grid>
+
+                                        <Grid item md={3}>
+                                            <TrendingUpIcon style={styles.modelTrainingIcons}/>
+                                            <Typography variant="subtitle1" style={{fontWeight:"500", marginTop:"10px", marginBottom: "5px"}}>Train Model</Typography>
+                                            <Typography variant="body1">Use hyperparameters from the previous step to train the model and save the best weights for each of the three images.</Typography>
+                                        </Grid>
+                                    </Grid>
                                 </Container>
-                            </Grid>
+                            </div>
                         </Grid>
 
+
+
+
+
+                            </div>
+                        </Grid>
                     </Grid>
+
                 </Grid>
-
-
-
+            </Grid>
+                
 
             </Grid>
 
