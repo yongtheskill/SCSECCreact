@@ -53,8 +53,8 @@ export class about extends Component {
                         </Grid>
                         <Grid item xs={4}>
                             <Grid container direction="column" justify="space-between" alignItems="flex-start" spacing={1}>
-                                <Grid item><Typography variant="body2" style={{fontSize:"24px"}}>Spread the Joy of Learning</Typography></Grid>
-                                <Grid item><Typography variant="body2">We want to share our love for data science with everyone! </Typography></Grid>
+                                <Grid item><Typography variant="body2" style={{fontSize:"24px"}}>Who are we?</Typography></Grid>
+                                <Grid item><Typography variant="body2">We are Computing Nuts, partnered with the government to provide SkillsFuture courses on machine learning. We just want to share our love for data science with everyone!</Typography></Grid>
                             </Grid>
                         </Grid>
                     </Grid>
