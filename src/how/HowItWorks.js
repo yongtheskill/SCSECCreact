@@ -27,6 +27,12 @@ import process1Img from '../img/p1.png';
 import process2Img from '../img/p2.png';
 import process3Img from '../img/p3.png';
 import awsImg from '../img/aws.png';
+import w1Img from '../img/w1.png';
+import w2Img from '../img/w2.png';
+import w3Img from '../img/w3.png';
+import w4Img from '../img/w4.png';
+import w5Img from '../img/w5.png';
+import w6Img from '../img/w6.png';
 
 import ExpandCard from './ExpandCard';
 
@@ -186,30 +192,30 @@ export default function HowItWorks() {
                             <Container maxWidth="lg" align="center">
                                 <Grid container direction="row" spacing={5}>
                                     <Grid item md={4}>
-                                        <ExpandCard image={TestImg} title="No Vanishing Gradient" content="The gradient of the error function does not become too small to affect the weights of certain layers." />
+                                        <ExpandCard image={w1Img} title="No Vanishing Gradient" content="The gradient of the error function does not become too small to affect the weights of certain layers." />
                                     </Grid>
 
                                     <Grid item md={4}>
-                                        <ExpandCard image={TestImg} title="No Vanishing Gradient" content="The gradient of the error function does not become too small to affect the weights of certain layers." />
+                                        <ExpandCard image={w2Img} title="Fast Convergence" content="Skip connections allow for more effective backpropagation." />
                                     </Grid>
 
                                     <Grid item md={4}>
-                                        <ExpandCard image={TestImg} title="No Vanishing Gradient" content="The gradient of the error function does not become too small to affect the weights of certain layers." />
+                                        <ExpandCard image={w3Img} title="Feature Reuse" content="Gradient flowing through the deep Resnets may not go through residual block weights and it may not learn anything." />
                                     </Grid>
                                 </Grid>
                             </Container>
                             <Container maxWidth="lg" align="center">
                                 <Grid container direction="row" spacing={5}>
                                     <Grid item md={4}>
-                                        <ExpandCard image={TestImg} title="No Vanishing Gradient" content="The gradient of the error function does not become too small to affect the weights of certain layers." />
+                                        <ExpandCard image={w4Img} title="Reduced Parameters" content="Less parameters are required for the same network performance." />
                                     </Grid>
 
                                     <Grid item md={4}>
-                                        <ExpandCard image={TestImg} title="No Vanishing Gradient" content="The gradient of the error function does not become too small to affect the weights of certain layers." />
+                                        <ExpandCard image={w5Img} title="Computational Efficiency" content="GPUs are built for parallel computations, which WRNs can better take advantage of." />
                                     </Grid>
 
                                     <Grid item md={4}>
-                                        <ExpandCard image={TestImg} title="No Vanishing Gradient" content="The gradient of the error function does not become too small to affect the weights of certain layers." />
+                                        <ExpandCard image={w6Img} title="Simple" content="The WRN structure is relatively simple and easy to inplement." />
                                     </Grid>
                                 </Grid>
                             </Container>
@@ -231,30 +237,30 @@ export default function HowItWorks() {
                             <Container maxWidth="lg" align="center">
                                 <Grid container direction="row" spacing={5}>
                                     <Grid item md={4}>
-                                        <ExpandCard image={TestImg} title="No Vanishing Gradient" content="The gradient of the error function does not become too small to affect the weights of certain layers." />
+                                        <ExpandCard image={w1Img} title="No Vanishing Gradient" content="The gradient of the error function does not become too small to affect the weights of certain layers." />
                                     </Grid>
 
                                     <Grid item md={4}>
-                                        <ExpandCard image={TestImg} title="No Vanishing Gradient" content="The gradient of the error function does not become too small to affect the weights of certain layers." />
+                                        <ExpandCard image={w2Img} title="Fast Convergence" content="Skip connections allow for more effective backpropagation." />
                                     </Grid>
 
                                     <Grid item md={4}>
-                                        <ExpandCard image={TestImg} title="No Vanishing Gradient" content="The gradient of the error function does not become too small to affect the weights of certain layers." />
+                                        <ExpandCard image={w3Img} title="Feature Reuse" content="Gradient flowing through the deep Resnets may not go through residual block weights and it may not learn anything." />
                                     </Grid>
                                 </Grid>
                             </Container>
                             <Container maxWidth="lg" align="center">
                                 <Grid container direction="row" spacing={5}>
                                     <Grid item md={4}>
-                                        <ExpandCard image={TestImg} title="No Vanishing Gradient" content="The gradient of the error function does not become too small to affect the weights of certain layers." />
+                                        <ExpandCard image={w4Img} title="Reduced Parameters" content="Less parameters are required for the same network performance." />
                                     </Grid>
 
                                     <Grid item md={4}>
-                                        <ExpandCard image={TestImg} title="No Vanishing Gradient" content="The gradient of the error function does not become too small to affect the weights of certain layers." />
+                                        <ExpandCard image={w5Img} title="Computational Efficiency" content="GPUs are built for parallel computations, which WRNs can better take advantage of." />
                                     </Grid>
 
                                     <Grid item md={4}>
-                                        <ExpandCard image={TestImg} title="No Vanishing Gradient" content="The gradient of the error function does not become too small to affect the weights of certain layers." />
+                                        <ExpandCard image={w6Img} title="Simple" content="The WRN structure is relatively simple and easy to inplement." />
                                     </Grid>
                                 </Grid>
                             </Container>
