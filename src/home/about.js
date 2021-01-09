@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Navbar from './Navbar'
+import Navbar from '../Navbar'
 import Container from '@material-ui/core/Container'
 import Grid from '@material-ui/core/Grid'
 import Box from '@material-ui/core/Box'
@@ -16,7 +16,7 @@ const styles = {
     boxy:{
         height:'100vh',
         width:'100vw',
-        backgroundColor: 'white',
+        backgroundColor: 'transparent',
     },
     big:{
         transform:'scale(23)',
@@ -31,17 +31,19 @@ export class about extends Component {
                 
                 <Grid container direction="column">
 
+                    <Paper style={{...styles.boxy}} elevation={2} square>
                     <Grid container direction="row" justify="space-evenly" alignItems="center" style={styles.boxy}>
                         <Grid item xs={5}>
                             <Grid container direction="column" justify="space-between" alignItems="flex-start" spacing={1}>
                                 <Grid item><Typography variant="h2" style={{fontWeight:"normal",lineHeight:"100%"}}>We love machine learning</Typography></Grid>
-                                <Grid item><Typography variant="body2" style={{lineHeight:"180%"}}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</Typography></Grid>
+                                <Grid item><Typography variant="body2" style={{lineHeight:"180%"}}>...so much so that even our domain name contains ml!</Typography></Grid>
                             </Grid>
                         </Grid>
                         <Grid item xs={5}>
                             <Container maxWidth="sm" align="center"><SvgIcon component={aI} viewBox="0 0 847.62 386.288" style={styles.big}/></Container>
                         </Grid>
                     </Grid>
+                    </Paper>
 
                     <Grid container direction="row" justify="space-evenly" alignItems="center" style={styles.boxy}>
                         <Grid item xs={6}>
@@ -49,12 +51,13 @@ export class about extends Component {
                         </Grid>
                         <Grid item xs={4}>
                             <Grid container direction="column" justify="space-between" alignItems="flex-start" spacing={1}>
-                                <Grid item><Typography variant="body2" style={{fontSize:"24px"}}>Lorem Ipsum</Typography></Grid>
-                                <Grid item><Typography variant="body2">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Bibendum est ultricies integer quis. Iaculis</Typography></Grid>
+                                <Grid item><Typography variant="body2" style={{fontSize:"24px"}}>Spread the Joy of Learning</Typography></Grid>
+                                <Grid item><Typography variant="body2">We want to share our love for data science with everyone! </Typography></Grid>
                             </Grid>
                         </Grid>
                     </Grid>
 
+                    <Paper style={{...styles.boxy,...{backgroundColor:"#F0F0F0"}}} elevation={1} square>
                     <Grid container direction="row" justify="space-evenly" alignItems="center" style={{backgroundColor:"#F0F0F0",width:"100vw",height:"100vh"}}>
                         <Grid item xs={6}>
                             <Grid container direction="column" justify="space-between" alignItems="center" spacing={1}>
@@ -62,7 +65,7 @@ export class about extends Component {
                                     <Container maxWidth="sm" align="center"><SvgIcon component={mission} viewBox="0 0 1061 742.855" style={{transform:"scale(15)",margin:"120px"}}/></Container>
                                 </Grid>
                                 <Grid item><Typography variant="body2" style={{fontSize:"24px"}}>Our Mission</Typography></Grid>
-                                <Grid item xs={8}><Typography variant="body2">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</Typography></Grid>
+                                <Grid item xs={8}><Typography variant="body2" align="center">Working with the government to promote data science in Singapore.<br/><br/>To encourage data science as a career option amongst youths in Singapore.</Typography></Grid>
                             </Grid>
                         </Grid>
                         <Grid item xs={6}>
@@ -71,10 +74,11 @@ export class about extends Component {
                                     <Container maxWidth="sm" align="center"><SvgIcon component={vision} viewBox="0 0 859.476 522.353" style={{transform:"scale(15)",margin:"120px"}}/></Container>
                                 </Grid>
                                 <Grid item><Typography variant="body2" style={{fontSize:"24px"}}>Our Vision</Typography></Grid>
-                                <Grid item xs={8}><Typography variant="body2">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</Typography></Grid>
+                                <Grid item xs={8}><Typography variant="body2" align="center">To empower youths with a learning resource to explore their technology interests alongside their peers.</Typography></Grid>
                             </Grid>
                         </Grid>
                     </Grid>
+                    </Paper>
 
                     <Grid container direction="row" justify="space-evenly" alignItems="center" style={styles.boxy}>
                         <Grid container direction="column" justify="space-between" alignItems="center">
