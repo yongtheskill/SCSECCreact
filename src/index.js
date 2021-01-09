@@ -17,6 +17,10 @@ let theme = createMuiTheme({
       'Arial',
       'Raleway',
     ].join(','),
+    h1: {
+      fontFamily: 'Raleway,Roboto,Montserrat',
+      fontWeight: '900',
+    },
     h2: {
       fontFamily: 'Raleway,Roboto,Montserrat',
       fontWeight: '900',

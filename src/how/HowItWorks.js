@@ -9,10 +9,17 @@ import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
 import Button from '@material-ui/core/Button';
 import Link from '@material-ui/core/Link';
+import Hidden from '@material-ui/core/Hidden';
+
 
 import WRNImg from '../img/WRN.png';
 import ResNetImg from '../img/ResNet.png';
+import TestImg from '../img/test.png';
+import process1Img from '../img/p1.png';
+import process2Img from '../img/p2.png';
+import process3Img from '../img/p3.png';
 
+import ExpandCard from './ExpandCard';
 
 const styles = {
     fillGrid: {
@@ -55,19 +62,19 @@ export default function HowItWorks() {
 
     return (
         <div>
-            <Navbar textColour="#fff"/>
+            <Navbar textColour="#fff" />
 
 
 
 
-            <Grid container spacing={0} style={{backgroundColor: "#000"}}>
+            <Grid container spacing={0} style={{ backgroundColor: "#000" }}>
                 <Grid item md={12} style={styles.fullHeight}>
 
                     <Grid container direction="column" item align="center" style={styles.fillGrid}>
                         <Grid item container direction="column" display="flex" justify="center" style={styles.fillGrid}>
                             <Container maxWidth="sm" align="left">
-                                <Typography variant="h2" style={{color:"white"}}>How It Works</Typography>
-                                <NextPage text="learn more"/>
+                                <Typography variant="h2" style={{ color: "white" }}>How It Works</Typography>
+                                <NextPage text="learn more" />
                             </Container>
                         </Grid>
                     </Grid>
@@ -76,7 +83,7 @@ export default function HowItWorks() {
             </Grid>
 
 
-            
+
 
             <Grid container spacing={0}>
                 <Grid item md={6} style={styles.fullHeight}>
@@ -85,7 +92,7 @@ export default function HowItWorks() {
                         <Grid item container direction="column" display="flex" justify="center" style={styles.fillGrid}>
                             <Container maxWidth="sm" align="left">
                                 <Typography variant="h2">Wide Residual Networks.</Typography>
-                                <Link href="https://arxiv.org/abs/1605.07146" target="_blank"><Typography variant="body1" style={{margin: "10px 0px 20px 0px"}}>WRN Paper</Typography></Link>
+                                <Link href="https://arxiv.org/abs/1605.07146" target="_blank"><Typography variant="body1" style={{ margin: "10px 0px 20px 0px" }}>WRN Paper</Typography></Link>
                                 <NextPage />
                             </Container>
                         </Grid>
@@ -97,7 +104,7 @@ export default function HowItWorks() {
                     <Grid container direction="column" item align="center" style={styles.fillGrid}>
                         <Grid item container direction="column" display="flex" justify="center" style={styles.fillGrid}>
                             <Container maxWidth="sm" align="left">
-                                <img src={WRNImg} alt="" style={styles.fitElem}/>
+                                <img src={WRNImg} alt="" style={styles.fitElem} />
                             </Container>
                         </Grid>
                     </Grid>
@@ -106,46 +113,269 @@ export default function HowItWorks() {
             </Grid>
 
 
-            
+
 
 
             <Grid container spacing={0}>
 
-                <Grid item md={12} style={{height: "10vh", backgroundColor: "black"}}>
+                <Grid item md={12} style={{ height: "10vh", backgroundColor: "black" }}>
                     <Grid container direction="column" item align="center" style={styles.fillGrid}>
                         <Grid item container direction="column" display="flex" justify="center" style={styles.fillGrid}>
                             <Container maxWidth="sm" align="center">
-                                <Typography variant="h2" style={{color:"white"}}>The Difference</Typography>
+                                <Typography variant="h2" style={{ color: "white" }}>The Difference</Typography>
                             </Container>
                         </Grid>
                     </Grid>
                 </Grid>
 
-            
-                <Grid item md={6} style={{...styles.grayBg, ...{height:"65vh"}}}>
+
+                <Grid item md={6} style={{ ...styles.grayBg, ...{ height: "75vh" } }}>
 
                     <Grid container direction="column" item align="center" style={styles.fillGrid}>
                         <Grid item container direction="column" display="flex" justify="center" style={styles.fillGrid}>
                             <Container maxWidth="sm" align="center" style={styles.fitElemSmall}>
-                                <img src={ResNetImg} alt=""  style={styles.fitElemSmall}/>
+                                <img src={ResNetImg} alt="" style={styles.fitElemSmall} />
                                 <Typography variant="subtitle1">ResNet</Typography>
                             </Container>
                         </Grid>
                     </Grid>
 
                 </Grid>
-                <Grid item md={6} style={{...styles.grayBg, ...{height:"65vh"}}}>
+                <Grid item md={6} style={{ ...styles.grayBg, ...{ height: "75vh" } }}>
 
                     <Grid container direction="column" item align="center" style={styles.fillGrid}>
                         <Grid item container direction="column" display="flex" justify="center" style={styles.fillGrid}>
                             <Container maxWidth="sm" align="center" style={styles.fitElemSmall}>
-                                <img src={WRNImg} alt="" style={styles.fitElemSmall}/>
+                                <img src={WRNImg} alt="" style={styles.fitElemSmall} />
                                 <Typography variant="subtitle1" >WRN</Typography>
                             </Container>
                         </Grid>
                     </Grid>
 
                 </Grid>
+
+                <Hidden lgDown>
+                    <Grid item md={12} style={{ ...{ height: "145vh" } }}>
+                        <Grid container direction="column" item align="center" style={{ height: "31vh" }}>
+                            <Container maxWidth="md" align="center">
+                                <Typography variant="h2" style={{ marginTop: "10vh" }}>WRN Benefits</Typography>
+                                <Typography variant="subtitle1" style={{ color: "#666", marginTop: "15px" }}>Why choose Wide Residual Networks over other netwerk architectures? Here are the factors taken into account when making the choice.</Typography>
+                            </Container>
+                        </Grid>
+                        <Grid item align="center" style={{ marginTop: "40px" }}>
+                            <div style={styles.fitElem}>
+                                <Container maxWidth="lg" align="center">
+                                    <Grid container direction="row" spacing={5}>
+                                        <Grid item md={4}>
+                                            <ExpandCard image={TestImg} title="No Vanishing Gradient" content="The gradient of the error function does not become too small to affect the weights of certain layers." />
+                                        </Grid>
+
+                                        <Grid item md={4}>
+                                            <ExpandCard image={TestImg} title="No Vanishing Gradient" content="The gradient of the error function does not become too small to affect the weights of certain layers." />
+                                        </Grid>
+
+                                        <Grid item md={4}>
+                                            <ExpandCard image={TestImg} title="No Vanishing Gradient" content="The gradient of the error function does not become too small to affect the weights of certain layers." />
+                                        </Grid>
+                                    </Grid>
+                                </Container>
+                                <Container maxWidth="lg" align="center">
+                                    <Grid container direction="row" spacing={5}>
+                                        <Grid item md={4}>
+                                            <ExpandCard image={TestImg} title="No Vanishing Gradient" content="The gradient of the error function does not become too small to affect the weights of certain layers." />
+                                        </Grid>
+
+                                        <Grid item md={4}>
+                                            <ExpandCard image={TestImg} title="No Vanishing Gradient" content="The gradient of the error function does not become too small to affect the weights of certain layers." />
+                                        </Grid>
+
+                                        <Grid item md={4}>
+                                            <ExpandCard image={TestImg} title="No Vanishing Gradient" content="The gradient of the error function does not become too small to affect the weights of certain layers." />
+                                        </Grid>
+                                    </Grid>
+                                </Container>
+                            </div>
+                        </Grid>
+                    </Grid>
+                </Hidden>
+
+                <Hidden xlUp>
+                    <Grid item md={12} style={{ ...{ height: "190vh" } }}>
+                        <Grid container direction="column" item align="center" style={{ height: "31vh" }}>
+                            <Container maxWidth="md" align="center">
+                                <Typography variant="h2" style={{ marginTop: "10vh" }}>WRN Benefits</Typography>
+                                <Typography variant="subtitle1" style={{ color: "#666", marginTop: "15px" }}>Why choose Wide Residual Networks over other netwerk architectures? Here are the factors taken into account when making the choice.</Typography>
+                            </Container>
+                        </Grid>
+                        <Grid item align="center" style={{ marginTop: "40px" }}>
+                            <div style={styles.fitElem}>
+                                <Container maxWidth="lg" align="center">
+                                    <Grid container direction="row" spacing={5}>
+                                        <Grid item md={4}>
+                                            <ExpandCard image={TestImg} title="No Vanishing Gradient" content="The gradient of the error function does not become too small to affect the weights of certain layers." />
+                                        </Grid>
+
+                                        <Grid item md={4}>
+                                            <ExpandCard image={TestImg} title="No Vanishing Gradient" content="The gradient of the error function does not become too small to affect the weights of certain layers." />
+                                        </Grid>
+
+                                        <Grid item md={4}>
+                                            <ExpandCard image={TestImg} title="No Vanishing Gradient" content="The gradient of the error function does not become too small to affect the weights of certain layers." />
+                                        </Grid>
+                                    </Grid>
+                                </Container>
+                                <Container maxWidth="lg" align="center">
+                                    <Grid container direction="row" spacing={5}>
+                                        <Grid item md={4}>
+                                            <ExpandCard image={TestImg} title="No Vanishing Gradient" content="The gradient of the error function does not become too small to affect the weights of certain layers." />
+                                        </Grid>
+
+                                        <Grid item md={4}>
+                                            <ExpandCard image={TestImg} title="No Vanishing Gradient" content="The gradient of the error function does not become too small to affect the weights of certain layers." />
+                                        </Grid>
+
+                                        <Grid item md={4}>
+                                            <ExpandCard image={TestImg} title="No Vanishing Gradient" content="The gradient of the error function does not become too small to affect the weights of certain layers." />
+                                        </Grid>
+                                    </Grid>
+                                </Container>
+                            </div>
+                        </Grid>
+                    </Grid>
+                </Hidden>
+
+
+
+                <Hidden lgDown>
+                    <Grid container spacing={0} style={{ backgroundColor: "#000" }}>
+                        <Grid item md={12} style={{ height: "70vh" }}>
+
+                            <Grid container direction="column" item align="center" style={styles.fillGrid}>
+                                <Grid item container direction="column" display="flex" justify="center" style={styles.fillGrid}>
+                                    <Container maxWidth="sm" align="left">
+                                        <Typography variant="h2" style={{ color: "white" }}>Data Processing</Typography>
+                                        <NextPage text="How?" />
+                                    </Container>
+                                </Grid>
+                            </Grid>
+
+                        </Grid>
+                    </Grid>
+                </Hidden>
+
+                <Hidden xlUp>
+                    <Grid container spacing={0} style={{ backgroundColor: "#000" }}>
+                        <Grid item md={12} style={{ height: "25vh" }}>
+
+                            <Grid container direction="column" item align="center" style={styles.fillGrid}>
+                                <Grid item container direction="column" display="flex" justify="center" style={styles.fillGrid}>
+                                    <Container maxWidth="sm" align="left">
+                                        <Typography variant="h2" style={{ color: "white" }}>Data Processing</Typography>
+                                        <NextPage text="How?" />
+                                    </Container>
+                                </Grid>
+                            </Grid>
+
+                        </Grid>
+                    </Grid>
+                </Hidden>
+
+
+
+
+
+                <Grid container spacing={0} style={{ backgroundColor: "#fff" }}>
+                    <Grid item md={12} style={{height:"33vh"}}>
+                        <Grid container direction="column" item align="center" style={styles.fillGrid}>
+                            <Grid item container direction="column" display="flex" justify="center" style={styles.fillGrid}>
+                                <Container align="left">
+                                    <Grid container spacing={5} direction="row">
+                                        <Grid item md={3} align="right">
+                                                        <Typography variant="h1" >1.</Typography>
+                                            
+                                        </Grid>
+                                        <Grid item md={6}>
+                                            
+                                            <Typography variant="subtitle1" style={{marginTop: "14px"}}>Open images and store them in an array in memory for easy access.</Typography>
+                                        </Grid>
+                                        <Grid item md={3} align="left">
+                                            <img src={process1Img} alt="" style={{height:"75%", marginTop:"15px"}}/>
+                                        </Grid>
+                                    </Grid>
+                                </Container>
+                            </Grid>
+                        </Grid>
+                    </Grid>
+                </Grid>
+
+                <Grid container spacing={0} style={{ backgroundColor: "#fff" }}>
+                    <Grid item md={12} style={{height:"33vh"}}>
+                        <Grid container direction="column" item align="center" style={styles.fillGrid}>
+                            <Grid item container direction="column" display="flex" justify="center" style={styles.fillGrid}>
+                                <Container align="left">
+                                    <Grid container spacing={5} direction="row">
+                                        <Grid item md={3} align="right">
+                                                        <Typography variant="h1" >2.</Typography>
+                                            
+                                        </Grid>
+                                        <Grid item md={6}>
+                                            
+                                            <Typography variant="subtitle1" style={{marginTop: "14px"}}>Image threshold to remove jpeg artifacts and make pixels either white or black.</Typography>
+                                        </Grid>
+                                        <Grid item md={3} align="left">
+                                            <img src={process2Img} alt="" style={{height:"75%", marginTop:"15px"}}/>
+                                        </Grid>
+                                    </Grid>
+                                </Container>
+                            </Grid>
+                        </Grid>
+                    </Grid>
+                </Grid>
+
+                <Grid container spacing={0} style={{ backgroundColor: "#fff" }}>
+                    <Grid item md={12} style={{height:"34vh"}}>
+                        <Grid container direction="column" item align="center" style={styles.fillGrid}>
+                            <Grid item container direction="column" display="flex" justify="center" style={styles.fillGrid}>
+                                <Container align="left">
+                                    <Grid container spacing={5} direction="row">
+                                        <Grid item md={3} align="right">
+                                                        <Typography variant="h1" >3.</Typography>
+                                            
+                                        </Grid>
+                                        <Grid item md={6}>
+                                            
+                                            <Typography variant="subtitle1" style={{marginTop: "14px"}}>Split images into three parts, each containing one element of the math expression.</Typography>
+                                        </Grid>
+                                        <Grid item md={3} align="left">
+                                            <img src={process3Img} alt="" style={{height:"60%", marginTop:"15px"}}/>
+                                        </Grid>
+                                    </Grid>
+                                </Container>
+                            </Grid>
+                        </Grid>
+                    </Grid>
+                </Grid>
+
+
+
+
+                <Grid container spacing={0} style={{ backgroundColor: "#fff" }}>
+                    <Grid item md={12} style={styles.fullHeight}>
+
+                        <Grid container direction="column" item align="center" style={styles.fillGrid}>
+                            <Grid item container direction="column" display="flex" justify="center" style={styles.fillGrid}>
+                                <Container maxWidth="sm" align="left">
+                                    <Typography variant="h2">Model Training</Typography>
+                                    <NextPage text="ok" />
+                                </Container>
+                            </Grid>
+                        </Grid>
+
+                    </Grid>
+                </Grid>
+
+
+
 
             </Grid>
 
